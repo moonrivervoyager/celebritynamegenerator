@@ -1,0 +1,77 @@
+# Celebrity Baby Name Picker
+# A fun script that generates random, quirky celebrity baby names.
+
+import random  # To pick random items from lists
+import sys  # Used for stderr, can be omitted if unnecessary
+
+def main():
+    """Celebrity Baby Name Picker"""
+    print("Welcome to the Celebrity Baby Name Picker!")
+
+    # Lists of names
+    first = [
+        "Zephyr", "Cloudia", "Moss", "Solaris", "Comet", "Pollen", "Glacier",
+        "Twilight", "Fern", "Meadowlark", "Croissant", "Cilantro", "Gouda", 
+        "Saffron", "Cheddar", "Mochi", "Alfalfa", "Maple", "Pineapple", 
+        "Pumpernickel", "Bacon", "Velvet", "Diamondé", "Tiarra", "Jetset",
+        "Cashmere", "Versace", "Prism", "Opulence", "Aurum", "Platinum",
+        "Quasar", "Tesla", "Ledger", "Tassel", "Gavel", "Umbrella", 
+        "Accordion", "Sputnik", "Neon", "Excalibur", "Pixie", "Fable",
+        "Zeppelin", "Sphinx", "Chimera", "Draconia", "Rune", "Oberon", 
+        "Atlantis", "Kyberly", "Elyssium", "Jayphoria", "Sparkleigh",
+        "Moonique", "Ashquarius", "Luxington", "Thornabelle", "Glimmerly",
+        "Froufrou", "Jubilee", "Dazzle", "Glitz", "Bling", "Boombox",
+        "Bubbles", "Sparkle", "Confetti", "Swagger", "Otter", "Fawn", 
+        "Lynx", "Cougar", "Snail", "Peacock", "Duckling", "Penguin",
+        "Algorithm", "Banana", "Trivia", "Clutch", "Zoodle", "Doodle",
+        "Jpeg", "Paprika", "Vortex", "Yonder", "Montague", "Bartholomew",
+        "Euphemia", "Cornelius", "Winslow", "Ambrosia", "Hyacinth", 
+        "Beauregard", "Thistle", "Pixel", "Cache", "Bluetooth", "Widget",
+        "Captcha", "Baguette"
+    ]
+    
+    middle = [
+        "von", "van", "van der", "de", "de la", "di", "du", "le", "la", 
+        "del", "Blizzard", "Tumbleweed", "Pebble", "Gust", "Sleet", 
+        "Thicket", "Quagmire", "Fjord", "Scone", "Pudding", "Toast", 
+        "Basil", "Cobbler", "Fitzwilliam", "Peregrine", "Archimedes", 
+        "Erasmus", "Crispin", "Montmorency", "Thaddeus", "Laser", "Matrix", 
+        "Echo", "Cyber", "Riot", "Gunner", "Butler", "Ranger", "Jester", 
+        "Banjo", "Quibble", "Muffin", "Spork", "Clang", "Wobble", "Beaker"
+    ]
+    
+    last = [
+        "Eilish", "Grande", "Styles", "Harlow", "Bieber", "Mars", "Sheeran",
+        "Chalamet", "Holland", "Elordi", "Hadid", "Jonas", "Pattinson", 
+        "Evans", "Hemsworth", "Mendes", "Kelce", "Swift", "Radcliffe", 
+        "Hiddleston", "Cumberbatch", "Garfield", "Driver", "Tatum", 
+        "Hamilton", "Manuel Miranda", "Healy", "Wolfhard", "Butler"
+    ]
+
+    last_generated = None  # To track the last generated name
+
+    while True:
+        # Generate a random name
+        first_name = random.choice(first)
+        middle_name = random.choice(middle)
+        last_name = random.choice(last)
+
+        # Avoid repeating the same name consecutively
+        if (first_name, middle_name, last_name) == last_generated:
+            continue
+        last_generated = (first_name, middle_name, last_name)
+
+        # Print the generated name
+        print(f"\n\n{first_name} {middle_name} {last_name}\n\n")
+
+        # Ask user to try again or quit
+        try_again = input("Try again? (Press Enter to generate another name or type 'n' to quit):\n ")
+        if try_again.lower() == "n":
+            break
+
+    print("\nThanks for playing!")
+    input("\nPress Enter to exit.")
+
+# Run the program if executed directly
+if __name__ == "__main__":
+    main()
